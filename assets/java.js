@@ -42,7 +42,7 @@ $(document).ready(function () {
 
     // This pulls the value of the button clicked by the user
     let gifs= $(this).attr('data')
-    var queryURL= 'https://api.giphy.com/v1/gifs/search?q=' + gifs + '&api_key=pt60h37z2e8OWaFPknx60JqEPkdjokFx'
+    var queryURL= 'https://api.giphy.com/v1/gifs/search?q=' + gifs + '&api_key=pt60h37z2e8OWaFPknx60JqEPkdjokFx&limit=10'
 
     $.ajax({
 
@@ -54,7 +54,52 @@ $(document).ready(function () {
       console.log(response)
       let results= response.data;
 
+      for (i = 0; i < results.length; i++) {
+
+        // This will create a new div for the gifs to sit inside
+        let Gifs= $('<div>')
+
+        // This creates a p tag for the title and rating text to go into
+        var myText= $('<p>');
+        // This puts the rating onto the page
+        $(myText).text('Rating: ' + results[i].rating);
+        // This creates an img tag for the gifs to be loaded onto, and below is where all the data types are being added to it
+        var loadedGifs= $('<img>')
+        // This source makes it so that the gifs will be in the still state when first
+        // loaded onto the page
+        loadedGifs.attr('src', results[i].images.fixed_height_still.url)
+        loadedGifs.attr('data-still', results[i].images.fixed_height_still.url)
+        loadedGifs.attr('data-animate', results[i].images.fixed_height.url)
+        loadedGifs.attr('data-state', 'still')
+        loadedGifs.addClass('gif')
+
+        // This adds the gifs to the gif section of my page
+        Gifs.append(loadedGifs)
+        Gifs.prepend(myText)
+        $('#gifBois').prepend(Gifs)
+
+      }
+
     })
+
+  })
+
+  $('#gifBois').on('click', '.gif', function(event) {
+
+    event.preventDefault();
+    // This will get the current state of the gif that the user clicks on
+    let state= $(this).attr('data-state');
+    if (state === 'still') {
+
+      $(this).attr('src', $(this).attr('data-animate'));
+      $(this).attr('data-state', 'animate');
+
+    } else {
+
+      $(this).attr('src', $(this).attr('data-still'))
+      $(this).attr('data-state', 'still')
+
+    }
 
   })
 
