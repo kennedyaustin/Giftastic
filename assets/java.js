@@ -1,26 +1,21 @@
 $(document).ready(function () {
     
-    function renderButtons() {
+  let topics= ['blue', 'yellow', 'green']
 
-        // Deleting the movie buttons prior to adding new movie buttons
-        // (this is necessary otherwise we will have repeat buttons)
-        $("#buttons-view").empty();
+  function gifButtons(){
 
-        // Looping through the array of movies
-        for (var i = 0; i < movies.length; i++) {
+    // Deleting the movie buttons prior to adding new movie buttons
+    // (this is necessary otherwise we will have repeat buttons)
+    $('#buttonBois').empty();
 
-      // Then dynamicaly generating buttons for each movie in the array.
-      // This code $("<button>") is all jQuery needs to create the start and end tag. (<button></button>)
-        var a = $("<button>");
-      // Adding a class
-        a.addClass("movie");
-      // Adding a data-attribute with a value of the movie at index i
-        a.attr("data-name", movies[i]);
-      // Providing the button's text with a value of the movie at index i
-        a.text(movies[i]);
-      // Adding the button to the HTML
-        $("#buttons-view").append(a);
-        }
-    }
+    // This for loop will create a button for the chosen topics above for the user to click on before they add their own
+    for (i = 0; i < topics.length; i++) {
+
+      button = $('<button type=' + 'button' + '>' + topics[i] + '</button>').addClass('btn btn-warning').attr('data',topics[i]);
+      $("#buttonBois").append(button);
+
+    };
+
+  }
 
 }

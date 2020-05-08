@@ -2,39 +2,64 @@
 <html lang= "en-us">
 
 <head>
-    <meta charset="UTF-8">
     <title>Giftastic</title>
+    <!-- This should make the website mobile compatible -->
+    <meta name= "viewport" content= "width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <!-- Bootstrap styling -->
     <link rel= "stylesheet" href= "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel= "stylesheet" href= "assets/css/style.css">
+    <!-- My styling -->
+    <link rel= "stylesheet" href= "assets/style.css">
+    
 </head>
 
 <body>
 
-    <div class= "container">
+    <div class= "container-fluid" id= "backgrounds">
+    	
+	    <!-- This is just a header to make the page more aesthetically pleasing -->
+	    <div class= "row">
 
-        <div class= "button-view"></div>
-        <div class= "row">
+	    	<div class= "col-md-12 text-center" id= "header">
 
-            <div class= "col-md-8"></div>
-            <div class= "col-md-4">
-
-                <form id= "gif-search">
-
-                    <label for= "gif-input">Add your Gif Here</label>
-                    <br>
-                    <input type= "text" id= "gif-input">
-                    <br><br>
+                <h2 id= "title">Giftastic!</h2>
                 
-                    <!-- Button triggers new movie to be added -->
-                    <input id= "add-gif" type= "submit" value= "Submit">
-    
-                </form>
-
             </div>
+            
+	    </div>
+	    
+		<!-- This is where the buttons will be when the page loads up -->
+		<div class= "row">
 
-        </div>
-        
-    </div>
+            <div class= "col-md-12" id= "buttonBois"></div>
+            
+		</div>
+
+		<div class= "row">
+
+            <!-- This is where the gifs will show up whenever the buttons above are clicked -->
+			<div class= "col-md-12" id= "gifBois"></div>
+			
+            <!-- This is the input area where the user will search for their gifs -->		
+            <div class= "col-md-8"></div>
+			<div class= "col-md-4">
+
+				<form>
+
+				  	<label for= "topic-input">Add a topic</label><br>
+                    <input type= "text" placeholder= "Your search query here.." id= "topic-input">
+                    <br>
+                    <button type= "submit" class= "btn submit" id= "submitboi" data= "submitBtn">Submit</button>
+                  
+                </form>
+                
+            </div>
+            
+		</div>	
+		
+		
+
+	</div>
         
    
 
@@ -42,8 +67,5 @@
     <script type= "text/javascript" src= '../Giftastic/assets/java.js'></script>
 
 </body>
-
-
-
 
 </html>
