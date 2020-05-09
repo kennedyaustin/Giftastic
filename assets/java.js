@@ -109,4 +109,12 @@ $(document).ready(function () {
 
   })
 
+  // This click event listener will wait for the user to click the submit button
+  // before it clears the text box the user was typing in
+  $('#submitboi').on('click', function() {
+
+    $('#gif-input').val('')
+
+  })
+
 })
