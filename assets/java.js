@@ -1,11 +1,11 @@
 $(document).ready(function () {
     
-  let topics= ['blue', 'yellow', 'green']
+  let topics= ['Pikachu', 'Lucario', 'Eevee', 'Mew', 'Charizard', 'Blastoise', 'Snorlax', 'Psyduck',
+  'Meowth', 'Haunter']
 
   function gifButtons(){
 
-    // Deleting the movie buttons prior to adding new movie buttons
-    // (this is necessary otherwise we will have repeat buttons)
+    // Deleting the buttons prior to adding new Pokemon buttons
     $('#buttonBois').empty();
 
     // This for loop will create a button for the chosen topics above for the user to click on before they add their own
@@ -57,26 +57,30 @@ $(document).ready(function () {
       for (i = 0; i < results.length; i++) {
 
         // This will create a new div for the gifs to sit inside
-        let Gifs= $('<div>')
+        let Gifs= $('<div>');
 
         // This creates a p tag for the title and rating text to go into
-        var myText= $('<p>');
+        var myText= $('<h4>');
+        var myTitle= $('<h4>');
         // This puts the rating onto the page
+        $(myTitle).text('Title: ' + results[i].title);
         $(myText).text('Rating: ' + results[i].rating);
         // This creates an img tag for the gifs to be loaded onto, and below is where all the data types are being added to it
         var loadedGifs= $('<img>')
         // This source makes it so that the gifs will be in the still state when first
         // loaded onto the page
-        loadedGifs.attr('src', results[i].images.fixed_height_still.url)
-        loadedGifs.attr('data-still', results[i].images.fixed_height_still.url)
-        loadedGifs.attr('data-animate', results[i].images.fixed_height.url)
-        loadedGifs.attr('data-state', 'still')
-        loadedGifs.addClass('gif')
+        loadedGifs.attr('src', results[i].images.fixed_height_still.url);
+        loadedGifs.attr('data-still', results[i].images.fixed_height_still.url);
+        loadedGifs.attr('data-animate', results[i].images.fixed_height.url);
+        loadedGifs.attr('data-state', 'still');
+        loadedGifs.addClass('gif');
 
         // This adds the gifs to the gif section of my page
-        Gifs.append(loadedGifs)
-        Gifs.prepend(myText)
-        $('#gifBois').prepend(Gifs)
+        Gifs.append(loadedGifs);
+        Gifs.prepend(myText);
+        Gifs.prepend(myTitle);
+        $('#gifBois').prepend(Gifs);
+        
 
       }
 
@@ -89,6 +93,8 @@ $(document).ready(function () {
     event.preventDefault();
     // This will get the current state of the gif that the user clicks on
     let state= $(this).attr('data-state');
+    // If state is equal to 'animate', then update the src attribute of this
+    // image to it's data-still value and update the data-state attribute to 'still'
     if (state === 'still') {
 
       $(this).attr('src', $(this).attr('data-animate'));
@@ -96,8 +102,8 @@ $(document).ready(function () {
 
     } else {
 
-      $(this).attr('src', $(this).attr('data-still'))
-      $(this).attr('data-state', 'still')
+      $(this).attr('src', $(this).attr('data-still'));
+      $(this).attr('data-state', 'still');
 
     }
 

@@ -2,7 +2,7 @@
 <html lang= "en-us">
 
 <head>
-    <title>Giftastic</title>
+    <title>Pokemon Gifs</title>
     <!-- This should make the website mobile compatible -->
     <meta name= "viewport" content= "width=device-width, initial-scale=1">
     <meta charset="UTF-8">
@@ -20,9 +20,9 @@
 	    <!-- This is just a header to make the page more aesthetically pleasing -->
 	    <div class= "row">
 
-	    	<div class= "col-md-12 text-center" id= "header">
+	    	<div class= "col-md-12 text-center" id= "myheader">
 
-                <h2 id= "title">Giftastic!</h2>
+                <h2 id= "title">Pokemon Gifs!</h2>
                 
             </div>
             
@@ -41,14 +41,14 @@
 			<div class= "col-md-8" id= "gifBois"></div>
 			
             <!-- This is the input area where the user will search for their gifs -->		
-			<div class= "col-md-4">
+			<div class= "col-md-4" id= "search">
 
                 <!-- Got this form from the MovieButtonLayout activity, really helpful, as well as the javascript button area -->
                 <form id= "form">
                     
-                    <label for= "gif-input">Add a topic</label>
+                    <label for= "gif-input" id= "Add">Add a Pokemon</label>
                     <br>
-                    <input type= "text" placeholder= "Your search query here.." id= "gif-input">
+                    <input type= "text" placeholder= "Your Pokemon Here.." id= "gif-input">
                     <br><br>
                     <button type= "submit" class= "btn submit" id= "submitboi" data= "submitBtn">Submit</button>
 
