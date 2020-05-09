@@ -27,12 +27,9 @@ form {
 }
 
 .btn {
-    background-color: blue;
-    margin: 5px 0 0 5px;
-    background-image: url(../assets/images/pic.png);
+    background: url(../assets/images/pic.png) center;
     background-size: cover;
-    font-weight: bold;
-    font-size: 15px;
+    margin: 5px 0 0 5px;
     color: rgb(204, 30, 30);
 }
 
