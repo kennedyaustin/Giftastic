@@ -16,4 +16,4 @@ This project that focused primarily on APIs and AJAX calls. We were asked to use
 
 As a child at heart, I chose Pokemon as my topic. Type in the name of your favorite Pokemon to see 10 gifs generate onto the page for your viewing pleasure. 
 The gifs are displayed on the page will be stationary until they are clicked, the user can also click on them again to make them stop moving.
-![](GifSS/GifsLoaded)
+![](GifSS/GifsLoaded.png)
